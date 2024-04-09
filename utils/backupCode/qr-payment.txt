@@ -1,0 +1,78 @@
+import React from 'react';
+import {View, StyleSheet, TouchableOpacity, Image, Text} from 'react-native';
+import RNUpiPayment from 'react-native-upi-payment';
+
+const QRScannerPage = () => {
+  const InitiatePayemt = () => {
+    RNUpiPayment.initializePayment(
+      {
+        vpa: 'lakshaykunar507@oksbi',
+        payeeName: 'Lakshay Kumar Kashyap',
+        amount: '1',
+        transactionRef: 'aasf-332-aoei-fn',
+      },
+      successCallback,
+      failureCallback,
+    );
+  };
+  function successCallback(data) {
+    console.log(data);
+  }
+
+  function failureCallback(data) {
+    console.log(data);
+  }
+
+  return (
+    <View style={styles.container}>
+      <View style={styles.qrContainer}>
+        {/* Yellow-bordered box */}
+        <View style={styles.qrBox}></View>
+      </View>
+      <TouchableOpacity style={styles.buttonContainer} onPress={InitiatePayemt}>
+        {/* Camera button with icon */}
+        <Text>Click</Text>
+        {/* <Image
+          source={require('../assets/n-check-1@3x.png')}
+          style={styles.cameraIcon}
+        /> */}
+      </TouchableOpacity>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'black',
+  },
+  qrContainer: {
+    borderWidth: 2,
+    borderColor: 'white',
+    padding: 20,
+    borderRadius: 7,
+  },
+  qrBox: {
+    width: 200,
+    height: 200,
+    backgroundColor: 'transparent',
+  },
+  buttonContainer: {
+    backgroundColor: '#c9efc7',
+    padding: 15,
+    borderRadius: 50,
+    marginTop: 20,
+    width: 110,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  cameraIcon: {
+    width: 24,
+    height: 24,
+    tintColor: 'white',
+  },
+});
+
+export default QRScannerPage;

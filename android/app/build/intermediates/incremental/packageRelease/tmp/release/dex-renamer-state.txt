@@ -1,0 +1,4 @@
+#Tue Apr 09 11:50:41 IST 2024
+base.0=D\:\\Lakshay Ka Hai\\Applications\\BusEase\\android\\app\\build\\intermediates\\dex\\release\\minifyReleaseWithR8\\classes.dex
+renamed.0=classes.dex
+path.0=classes.dex
